@@ -1,0 +1,53 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-size:x-large;
+}
+
+li:hover{
+color: red;
+cursor: pointer;
+}
+
+nav{
+     width: 60vw;
+     margin-top: 5px;
+}
+
+.bigimage{
+
+   width: 95vw;
+ 
+}
+
+.container{
+    display: flex;
+    margin: 50px;
+}
+.container>div{
+    text-align: center;
+
+}
+
+.container>div>p{
+    font-size: x-large;
+    margin: 30px;
+}
+
+footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: x-large;
+}
+
+footer>p{
+    padding: 1rem;
+}
