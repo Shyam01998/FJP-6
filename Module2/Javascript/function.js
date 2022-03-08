@@ -19,7 +19,7 @@ function multiple(n1,n2){
 let ans = multiple(3,5);
 console.log(ans);
 
-//function are first class citizen in js
+//function are first class citizen in js //imp
 let a = function sub(n1,n2){
     return(n1 - n2);
 }
