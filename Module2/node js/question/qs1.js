@@ -9,20 +9,9 @@ if (!fs.existsSync("newFolder")) {
 }
 
 // create a file 
-let filePath = path.join(__dirname,"file1.txt");
+let filePath = path.join(__dirname,"newFolder","newfile.txt");
 console.log(filePath);
 
 //C-Create
 //It creat a file if it does not exists ,else it  override.
-fs.writeFileSync(filePath, "Hi this is new file.");
-
-//copy a file 
-let source = path.join(__dirname, "file1.txt");
-let destination = path.join(__dirname, "newFolder", "file1.txt");
-console.log(source);
-console.log(destination);
-
-fs.copyFileSync(source, destination);
-
-//D-delete 
-fs.unlinkSync(filePath);
+fs.writeFileSync(filePath, "new file has been made");
