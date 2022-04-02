@@ -1,10 +1,12 @@
 const request = require('request'); 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const fs = require('fs');
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
 
-let leaderboard = []
+let leaderboard = [];
+let counter = 0;
 
 request(link , cb)
 function cb(error , respond , html){
@@ -19,7 +21,8 @@ function cb(error , respond , html){
             let link = allScorecardTag[i].href;   
             let completeLink = "https://www.espncricinfo.com/" + link;
             //console.log(completeLink);
-            request(completeLink, cb2)
+            request(completeLink, cb2);
+            counter++;
          }
     }
 }
@@ -40,17 +43,19 @@ function cb2(error , response , html){
                 let fours  = cell[5].textContent;
                 let sixes = cell[6].textContent;
                 //console.log("Name :",name , "Runs :",runs, "Balls :",balls , "Fours :", fours, "Sixes :",sixes );
+                processPlayer(name,runs,balls,fours,sixes);
 
 
             }
         }
+        counter--;
+        if(counter == 0){
+            console.log(leaderboard);
+            let data = JSON.stringify(leaderboard);
+            fs.writeFileSync('BatsmenStats.json',data);
+        }
     }
 }
-
-processPlayer('Rohit','10','4','2','4');
-processPlayer('Virat','30','10','3','2');
-processPlayer('Rohit','40','8','2','3');
-console.log(leaderboard);
 
 function processPlayer(name,runs,balls,fours,sixes){
     runs = Number(runs);
