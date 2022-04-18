@@ -1,3 +1,5 @@
+/* How to organise different extension file into there corressponding folder */
+
 let fs = require('fs');
 let path = require('path');
 
