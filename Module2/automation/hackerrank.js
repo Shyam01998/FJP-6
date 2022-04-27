@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const mail = "gerexo3510@idurse.com";
 const pass = "sahoo@2022";
 
-let browserPromise = puppeteer.launch({headless: false}) ;
+let browserPromise = puppeteer.launch({headless: false,}) ;
 let page;
 
 browserPromise.then(function(browser){
