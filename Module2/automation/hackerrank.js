@@ -80,6 +80,15 @@ browserPromise.then(function(browser){
         console.log(questionsArr);
         console.log(code.answers.length);
         let questionPromise = questionSolver(questionsArr[0],code.answers[0]);
+        for(let i = 1; i <questionsArr.length; i++){
+            questionPromise = questionPromise.then(function(){
+                let nextQuestionPromise = questionSolver(questionsArr[i],code.answers[i]);
+                return nextQuestionPromise;
+            })
+        }
+        return questionPromise;
+    }).then(function(){
+        console.log("All the warm up questions have been submitted!!!");
     })
 
     function waitAndClick (selector){
