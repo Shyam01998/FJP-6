@@ -3,7 +3,7 @@ const mail = "gerexo3510@idurse.com";
 const pass = "sahoo@2022";
 const code = require('./code');
 
-let browserPromise = puppeteer.launch({ headless: false, defaultViewport: null  }) ;
+let browserPromise = puppeteer.launch({ headless: false, defaultViewport: null, args: ['--start-fullscreen']  }) ;
 let page;
 
 browserPromise.then(function(browser){
