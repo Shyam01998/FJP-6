@@ -29,16 +29,20 @@
 
     //JSX --> javascript + html
 
-    function Element1() {
+    function Element1({name = "Aman",age}) {
         return (
-            <h1>Hello Coder </h1>
+            <div>
+            <h1>Hello {name} Coder </h1>
+            <h3> {age }</h3>
+            </div>
+
         )
     }
   
 
-    function Element2() {
+    function Element2( {name ="Aman"}) {
             return (
-                <h2>How are you? </h2>
+                <h2>How are you? {name} </h2>
             )
         }
 
@@ -46,10 +50,12 @@
     function Parent(){
         return(
             <div>
-                <Element1/>
-                <Element2/>
-                <Element1/>
-                <Element2/>
+                <Element1 name="Shyam" age ="23" / >
+                <Element2 name="Shyam"/>
+                <Element1 name="Ramesh"  age="20" />
+                <Element2 name="Ramesh" />
+                <Element1 />
+                <Element2 />
             </div>
         )
     }
