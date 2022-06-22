@@ -1,4 +1,4 @@
-export const movie = {
+export const movies = {
     page: 1,
     results: [
         {
