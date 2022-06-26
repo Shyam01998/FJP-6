@@ -1,16 +1,29 @@
 import { Component } from "react";
-import {movies} from  "../movieData";
+//import {movies} from  "../movieData";
+import axios from "axios";
 
 
 class MovieList extends Component{
     constructor(){
         super();
         this.state={
-            hover:""
+            hover:"",
+            pArr :[1],
+            movies:[]
         };
     }
+
+    async componentDidMount(){
+        console.log(this.componentDidMount);
+        const res = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=81242a2aa2066e052c78ec9ac1700c59&language=en-US&page=1');
+        console.log(res.data);
+        this.setState({
+            movies:[...res.data.results]
+        })
+    }
+
     render() {
-        let moviesArr = movies.results
+        console.log("rednered")
         return(
             <>
                 <div>
@@ -18,7 +31,7 @@ class MovieList extends Component{
                  </div>
 
                 <div className="movies-list">
-                    {moviesArr.map((movieEle) => (
+                    {this.state.movies.map((movieEle) => (
                         <div className="card movie-card" onMouseEnter={()=>this.setState({hover:movieEle.id})} onMouseLeave={()=>this.setState({hover:""})}>
                             <img src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`} style={{ height: '40vh', width: '20vw' }} className="card-img-top movie-img" alt="..." />
                           <h5 className="card-title movies-title">{movieEle.title}</h5>
@@ -36,10 +49,8 @@ class MovieList extends Component{
                 <nav aria-label="Page navigation example">
                     <ul className="pagination " style={{display:"flex",justifyContent:"center"}}>
                         <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                        <li className="page-item"><a className="page-link" href="#">2</a></li>
-                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                        <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                        {this.state.pArr.map((ele) => (<li className="page-item"><a className="page-link" href="#">{ele}</a></li>))}
+                        <li className="page-item"><a className="page-link" href="#" onMouseEnter={() => this.state.pArr.map({})}>Next</a></li>
                     </ul>
                 </nav>
             </>
