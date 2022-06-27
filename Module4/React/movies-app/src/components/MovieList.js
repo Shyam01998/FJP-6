@@ -23,11 +23,11 @@ class MovieList extends Component{
         })
     }
 
-    changeMovies = async()=>{
-        const res = await axios.get('https://api.themoviedb.org/3/movie/popular?api_key=81242a2aa2066e052c78ec9ac1700c59&language=en-US&page=${this.state.currPage}');
+    changeMovies = async () => {
+        const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=81242a2aa2066e052c78ec9ac1700c59&language=en-US&page=${this.state.currPage}`)
         console.log(res.data);
         this.setState({
-            movies:[...res.data.results]
+            movies: [...res.data.results]
         })
     }
 
@@ -36,6 +36,22 @@ class MovieList extends Component{
             pArr:[...this.state.pArr,this.state.pArr.length+1],
             currPage:this.state.currPage+1
         },this.changeMovies )
+    }
+
+    handlePrev = () => {
+        if (this.state.currPage != 1) {
+            this.setState({
+                currPage: this.state.currPage - 1
+            }, this.changeMovies);
+        }
+    }
+
+    handlePageClick=(ele)=>{
+        if(ele!=this.state.currPage){
+            this.setState({
+                currPage: ele
+            },this.changeMovies);
+        }
     }
 
     render() {
@@ -64,9 +80,9 @@ class MovieList extends Component{
                     
                 <nav aria-label="Page navigation example">
                     <ul className="pagination " style={{display:"flex",justifyContent:"center"}}>
-                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                        {this.state.pArr.map((ele) => (<li className="page-item"><a className="page-link" href="#">{ele}</a></li>))}
-                        <li className="page-item"><a className="page-link" href="#" onClick={this.handleNext}>Next</a></li>
+                        <li className="page-item"><a className="page-link" onClick={this.handlePrev}>Previous</a></li>
+                        {this.state.pArr.map((ele) => (<li className="page-item"><a className="page-link" onClick={this.handlePageClick(ele)}>{ele}</a></li>))}
+                        <li className="page-item"><a className="page-link"  onClick={this.handleNext}>Next</a></li>
                     </ul>
                 </nav>
             </>

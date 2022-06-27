@@ -90,3 +90,7 @@ color: white;
   position: absolute;
   bottom: 2rem;
 }
+
+.page-link{
+  cursor: pointer;
+}
