@@ -1,7 +1,6 @@
 import { Component } from "react";
 // import { movies } from "../movieData"
 import axios from 'axios'
-import { movies } from "../movieData";
 
 class MovieList extends Component {
     constructor() {
@@ -11,7 +10,7 @@ class MovieList extends Component {
             pArr: [1],
             movies: [],
             currPage: 1,
-            favourites:[]
+            favourites: []
         };
     }
 
