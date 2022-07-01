@@ -78,6 +78,50 @@ class Fav extends Component {
         }
     }
 
+    sortPopularityDesc= ()=>{
+        let temp = this.state.movies.map((movieObj)=>movieObj);
+        temp.sort(function(objA,objB){
+            return objB.popularity - objA.popularity;
+        })
+        this.setState({
+            movies:[...temp],
+            movies2:[...temp]
+        })
+    }
+
+    sortPopularityAsc = ()=> {
+        let temp = this.state.movies.map((movieObj) => movieObj);
+        temp.sort(function (objA, objB) {
+            return objA.popularity - objB.popularity;
+        })
+        this.setState({
+            movies: [...temp],
+            movies2: [...temp]
+        })
+    }
+
+    sortRatingAsc = () => {
+        let temp = this.state.movies.map((movieObj) => movieObj);
+        temp.sort(function (objA, objB) {
+            return objA.vote_average - objB.vote_average;
+        })
+        this.setState({
+            movies: [...temp],
+            movies2: [...temp]
+        })
+    }
+
+    sortRatingDesc = () => {
+        let temp = this.state.movies.map((movieObj) => movieObj);
+        temp.sort(function (objA, objB) {
+            return objB.vote_average - objA.vote_average;
+        })
+        this.setState({
+            movies: [...temp],
+            movies2: [...temp]
+        })
+    }
+
 
     render() {
         let genreIds = { 28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family", 14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music", 9648: "Mystery", 10749: "Romance", 878: "Science Fiction", 10770: "TV Movie", 53: "Thriller", 10752: "War", 37: "Western" }
@@ -98,7 +142,7 @@ class Fav extends Component {
                     </div>
                     <div className="col-9 fav-table">
                         <div className="row">
-                            <input type="text" className="form-control col" placeholder="Search" value={this.state.currText} onChange={(e)=>this.handleCurrText(e.target.value)}/>
+                            <input type="text" className="form-control col text-center" placeholder="Search"   value={this.state.currText} onChange={(e)=>this.handleCurrText(e.target.value)}/>
                             <input type="number" className="form-control col" />
                         </div>
 
@@ -107,8 +151,15 @@ class Fav extends Component {
                                 <tr>
                                     <th scope="col">Title</th>
                                     <th scope="col">Genre</th>
-                                    <th scope="col">Popularity</th>
-                                    <th scope="col">Rating</th>
+                                    <th scope="col">
+                                        <i class="fa fa-sort-up" style={{ marginTop: "0.5rem" }} onClick={this.sortPopularityDesc}></i>
+                                             Popularity
+                                        <i class="fa fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
+                                    <th scope="col">
+                                        <i class="fa fa-sort-up" style={{ marginTop: "0.5rem" }} onClick={this.sortRatingDesc}></i>
+                                             Rating
+                                        <i class="fa fa-sort-down" onClick={this.sortRatingAsc}></i></th>
+                                  
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
@@ -117,9 +168,9 @@ class Fav extends Component {
                                     this.state.movies.map((movieEle) => (
                                         <tr>
                                             <th scope="row"><img style={{ width: "8rem", padding: "1rem" }} src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`} />{movieEle.title}</th>
-                                            <td>{genreIds[movieEle.genre_ids[0]]}</td>
-                                            <td>{movieEle.popularity}</td>
-                                            <td>{movieEle.vote_average}</td>
+                                            <td >{genreIds[movieEle.genre_ids[0]]}</td>
+                                            <td className="text-center">{movieEle.popularity}</td>
+                                            <td className="text-center">{movieEle.vote_average}</td>
                                             <td><button type="button" className="btn btn-danger">Delete</button></td>
                                         </tr>
                                     ))
