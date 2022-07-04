@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-//use state
+//useEffect
 function Ue1(){
     const [count,setCount]= useState(0);
 
