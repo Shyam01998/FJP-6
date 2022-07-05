@@ -89,6 +89,10 @@ body{
    
 }
 
+.active{
+    border:5px solid red;
+}
+
 .main-cont{
 margin-top: 2rem;
 display: flex;
