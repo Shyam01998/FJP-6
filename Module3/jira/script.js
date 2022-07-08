@@ -2,7 +2,7 @@ let addBtn = document.querySelector(".add-btn");
 let modalCont = document.querySelector(".modal-cont");
 let taskAreaCont = document.querySelector(".textarea-cont");
 let mainCont = document.querySelector(".main-cont");
-let allPriorityColors = document.querySelectorAll(".priority-color");
+let allPriorityColors = document.querySelectorAll(". priorty-color");
 let addModal = true;
 let modalPriorityColor = 'black';
 

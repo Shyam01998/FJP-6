@@ -65,8 +65,8 @@ body{
     resize: none;
     outline: none;
     font-size: 2rem;
-    background-color: lightyellow;
-    height: 75%;
+    background-color: rgb(255, 224, 224);
+    height: 74%;
     width: 75%;
     padding: 3rem;
   
