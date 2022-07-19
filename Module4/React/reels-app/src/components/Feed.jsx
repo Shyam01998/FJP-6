@@ -4,7 +4,7 @@ function Feed(){
 
     return (
         <div>
-
+            feeds
         </div>
     )
 }

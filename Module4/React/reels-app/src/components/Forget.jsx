@@ -3,6 +3,7 @@
 function Forget(){
     return (
         <>
+        Forget
        </>
     )
     
