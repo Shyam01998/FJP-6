@@ -1,12 +1,9 @@
 
 
 function Feed(){
-
-    return (
-        <div>
-            feeds
-        </div>
+    return(
+        <div>Feed</div>
     )
 }
 
-export default Feed;
+export default Feed

@@ -2,9 +2,7 @@
 
 function Signup(){
     return (
-        <>
-        Signup
-        </>
+        <div>Signup</div>
     )
 }
 
