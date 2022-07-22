@@ -13,6 +13,9 @@ function App() {
       <Route path="/feed">
         <Feed></Feed>
       </Route>
+      <Route path="/forget">
+        <Forget></Forget>
+      </Route>
       <Route path="/login">
         <Login></Login>
       </Route>
