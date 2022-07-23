@@ -18,7 +18,7 @@ function Signup(){
         <input type="email"  onChange={(e)=>{setEmail(e.target.value)}}  value={email}  placeholder="email"></input><br></br>
         <input type="password" onChange={(e)=>{setPassword(e.target.value)}}  value={password}  placeholder="password"></input><br></br>
         <input type="text"   onChange={(e)=>{setName(e.target.value)}}      value={name}   placeholder="Full Name"></input><br></br> 
-        <button value="click"  onClick={processSignup}>Sign up</button>
+        <button type="click"  onClick={processSignup}>Sign up</button>
         </>
     )
 }
