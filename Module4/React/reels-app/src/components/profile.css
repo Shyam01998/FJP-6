@@ -6,7 +6,6 @@ body{
 .header{
     height: 5rem;
     border-bottom: 2px solid grey;
-
 }
 
 .main{
@@ -40,7 +39,7 @@ color: grey;
 
 .bold_text{
     font-weight: bold;
-color: black;
+     color: black;
 }
 
 .main>*{
