@@ -7,7 +7,24 @@ import { async } from '@firebase/util';
 
 function Profile(){
     let cUser = useContext(AuthContext);
-    let [loading,setLoading] = useState("")
+    let [loading,setLoading] = useState("");
+
+    useEffect(function fn(){
+        (async function(){
+            if(cUser){
+                //read from dabase
+                const docRef = doc(db,"users",cUser.uid);
+                const docSnap = await getDoc(docRef);
+                console.log("Document Data: ",docSnap)
+                if(docSnap.exists()){
+                    console.log(docSnap.data());
+                }else{
+                    console.log("No data")
+                }
+            }
+        })()
+    },[cUser])
+
 
     return(
 
