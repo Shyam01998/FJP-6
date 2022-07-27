@@ -3,7 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import './profile.css';
 import db from '../firebase'
 import {doc,getDoc} from 'firebase/firestore'
-import { async } from '@firebase/util';
+
 import './feed.css';
 
 function Profile(){
