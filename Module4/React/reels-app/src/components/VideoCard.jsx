@@ -3,7 +3,7 @@ import './videoCard.css';
 
 
 const  VideoCard = ()=>{
-    let [playing,setPlaying] = useState(false);
+    let [playing,setPlaying] = useState(true);
     let [commentBoxOpen,setCommentBox]= useState(false);
     return(
        <div className="video-card">
@@ -38,7 +38,7 @@ const  VideoCard = ()=>{
                 </div>
             ) : ("")}
 
-        <video onClick={(e)=>{
+        <video className="video-card-video" onClick={(e)=>{
             if(playing){
                 e.currentTarget.pause();
                 setPlaying(false)
@@ -46,7 +46,7 @@ const  VideoCard = ()=>{
                 e.currentTarget.play();
                 setPlaying(true);
             }
-        }}src=""></video>
+        }}src="https://firebasestorage.googleapis.com/v0/b/class-demo-28b22.appspot.com/o/production%20ID_4678261.mp4?alt=media&token=1e88c2b2-1603-44dc-b521-56241c88f990" crossrigin="anonymous"></video>
        </div>
     )
 }
