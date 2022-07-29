@@ -129,11 +129,22 @@ function createTicket(ticketColor, task, ticketId) {
       lockUnlockBtn.classList.add("fa-lock");
       ticketTaskArea.setAttribute("contenteditable", "false");
     }
+
+    //update ticketArr
+    let ticketIdx = getTicketIdx(id);
+    ticketArr[ticketIdx].task = ticketTaskArea.textContent;
   });
 
   //handling delete
   ticketCont.addEventListener("click", function () {
-    if (removeFlag) ticketCont.remove();
+    if (removeFlag){
+      //Delete from UI
+      ticketCont.remove();
+
+      //Delete from ticketArr
+      let ticketIdx = getTicketIdx(id);
+      ticketArr.splice(ticketIdx,1);//remove a ticket.
+  }
   });
 
   //handle color
@@ -154,16 +165,18 @@ function createTicket(ticketColor, task, ticketId) {
     ticketColorBand.classList.add(nextColor);
 
      //update ticketArr as well
-     let ticketIdx;
-     for(let i=0;i<ticketArr.length;i++){
-         if(ticketArr[i].id==id){
-             ticketIdx = i;
-             break;
-         }
-     }
+     let ticketIdx = getTicketIdx(id);
      ticketArr[ticketIdx].color = nextColor;
   });
 
   if(ticketId == undefined)
   ticketArr.push({ "color": ticketColor, "task": task, "id": id })
 } 
+
+function getTicketIdx(id){
+  for(let i=0;i<ticketArr.length;i++){
+      if(ticketArr[i].id==id){
+          return i;
+      }
+  }
+}
