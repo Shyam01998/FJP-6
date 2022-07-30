@@ -72,13 +72,11 @@ color: white;
 }
 
 .movie-card{
-  position: relative;
+  position: relative; 
   width: 20vw;
   margin: 1rem;
   color: white;
-  
-
-}
+ }
 
 .movies-title{
   position: absolute;
@@ -90,6 +88,7 @@ color: white;
 .movies-button{
   position: absolute;
   bottom: 2rem;
+  
 }
 
 .page-link{
