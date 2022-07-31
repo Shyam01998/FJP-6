@@ -41,6 +41,7 @@ class MovieList extends Component {
     handlePrev = () => {
         if (this.state.currPage != 1) {
             this.setState({
+
                 currPage: this.state.currPage - 1
             }, this.changeMovies);
         }
@@ -74,7 +75,7 @@ class MovieList extends Component {
     }
 
     render() {
-        console.log("rednered");
+        
         // let moviesArr = movies.results
         return (
             <>
@@ -84,8 +85,9 @@ class MovieList extends Component {
                 <div className="movies-list">
                     {this.state.movies.map((movieEle) => (
                         <div className="card movie-card" onMouseEnter={() => this.setState({ hover: movieEle.id })} onMouseLeave={() => this.setState({ hover: "" })} >
-                            <img src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`} style={{ height: '40vh', width: '20vw' }} className="card-img-top movie-img" alt="..." />
+                            <img src={`https://image.tmdb.org/t/p/original${movieEle.backdrop_path}`}  className="card-img-top movie-img" alt="..." />
                             <h5 className="card-title movie-title">{movieEle.title}</h5>
+                            {console.log(movieEle.title,"rednered")}
                             <div style={{ display: 'flex', justifyContent: "center" }}>
                                 {this.state.hover == movieEle.id && (
                                     <a type="button" className="btn btn-primary movies-button" onClick={() => this.handleFavourites(movieEle)}>

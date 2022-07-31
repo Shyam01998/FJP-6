@@ -184,7 +184,7 @@ class Fav extends Component {
                                             <td >{genreIds[movieEle.genre_ids[0]]}</td>
                                             <td className="text-center">{movieEle.popularity}</td>
                                             <td className="text-center">{movieEle.vote_average}</td>
-                                            <td><button type="button" className="btn btn-danger">Delete</button></td>
+                                            <td><button type="button" onClick={() => this.handleDelete(movieEle)} className="btn btn-danger">Delete</button></td>
                                         </tr>
                                     ))
                                 }

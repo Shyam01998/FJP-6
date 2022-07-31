@@ -102,3 +102,13 @@ color: white;
 .fav-table{
   padding-top: 3rem;
 }
+
+.card-img-top.movie-img{
+  height: 40vh;
+}
+
+.card-title.movie-title{
+  position: absolute;
+  color: white;
+  margin-left: 5px;
+}
