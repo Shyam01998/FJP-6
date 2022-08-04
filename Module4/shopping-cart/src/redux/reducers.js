@@ -26,9 +26,9 @@ let initialState =[ {
 
 {
     id:3,
-    name:'T-Shirt',
-    img:"https://rukminim1.flixcart.com/image/416/416/kll7bm80/vehicle-pull-along/7/v/n/1-10-alloy-metal-die-cast-racing-bicycle-model-cycling-toy-for-original-imagyz34mkvgfpjs.jpeg?q=70",
-    price:800,
+    name:'Hero Cycle',
+    img:"https://rukminim1.flixcart.com/image/416/416/l2krs7k0/cycle/r/u/h/rustler-with-integrated-carrier-85-assembled-26-16-5-hrx-54-original-imagdw3fah6zhwxy.jpeg?q=70",
+    price:5000,
     qty:0,
 },
 {
