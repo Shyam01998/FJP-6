@@ -32,3 +32,7 @@ align-items: center;
     padding: 4px 8px;
     
 }
+
+h4, h5{
+    text-align: center;
+}
