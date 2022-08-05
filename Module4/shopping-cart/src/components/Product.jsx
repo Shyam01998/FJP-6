@@ -15,8 +15,8 @@ let Product= (props)=>{
             className="product-img">
                 <img src={props.data.img} alt="Image not available"/>
             </div>
-            <h4>{props.data.name}</h4>
-            <h5>{props.data.price}</h5>
+            {/* <h4>{props.data.name}</h4>
+            <h5>{props.data.price}</h5> */}
             <div
             onClick={()=>{
                 dispatch(addCreator(props.data.id))
