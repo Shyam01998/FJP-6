@@ -7,19 +7,29 @@
 }
 
 .shopping-cart-home{
-    position: fixed;
-    bottom: 3rem;
+    position: absolute;
+    top: 1px;
     right: 4rem;
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     border: none;
-    background-color: orange;
+    background-color:black;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+button :hover {
+    color: red;
+  }
+
 .shopping-cart-home span{
     font-size: 2rem;
 }
+
+.container:hover{
+    color: red;
+}
+

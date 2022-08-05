@@ -13,7 +13,7 @@ let Cart = () => {
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Sr no.</th>
             <th scope="col">Product Name</th>
             <th scope="col">Price</th>
             <th scope="col">Qty</th>
@@ -37,7 +37,7 @@ let Cart = () => {
                   >
                     add
                   </span>
-                  {el.qty}
+                    {el.qty}
                   <span
                     onClick={() => dispatch(removeCreator(el.id))}
                     class="material-symbols-outlined"
