@@ -2,7 +2,7 @@ import LandingPage from "./components/landingPage";
 import Register from "./components/register";
 import Header from "./components/header";
 import Login from "./components/login";
-import Templete from "./components/templete";
+import Template from "./components/template";
 import About from "./components/about";
 import { Route, Switch } from "react-router-dom";
 
@@ -17,7 +17,7 @@ function App() {
       <LandingPage/>
     </Route>
     <Route path="/template" exact>
-      <Templete/>
+      <Template/>
     </Route>
     <Route path="/about" exact>
       <About/>

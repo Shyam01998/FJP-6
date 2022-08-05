@@ -1,7 +1,7 @@
 
 
 
-const Templete= ()=>{
+const Template= ()=>{
     return (
         <>
         <h1>Templete</h1>
@@ -9,4 +9,4 @@ const Templete= ()=>{
     )
 }
 
-export default Templete
+export default Template
