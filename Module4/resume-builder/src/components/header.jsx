@@ -6,7 +6,7 @@ const Header= ()=>{
         <>
         <div className="header">
             <div className="header-logo">
-                <Link to="/"> <img src="Module4\resume-builder\src\static\images\logo.png" alt="Image not available" /> </Link>
+                <Link to="/"> <img src="https://www.pepcoding.com/images/logo.png" alt="Image not available" /> </Link>
             </div>
             <div className="header-links">
                 <ul>
