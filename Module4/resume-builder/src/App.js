@@ -4,6 +4,8 @@ import Header from "./components/header";
 import Login from "./components/login";
 import Template from "./components/template";
 import About from "./components/about";
+import Contact from "./components/contact";
+import Education from "./components/education";
 import { Route, Switch } from "react-router-dom";
 
 
@@ -28,7 +30,12 @@ function App() {
     <Route path="/register" exact>
       <Register/>
     </Route>
-
+    <Route path="/contact" exact>
+      <Contact/>
+    </Route>
+    <Route path="/education" exact>
+      <Education/>
+    </Route>
    </Switch>
    </>
   );

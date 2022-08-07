@@ -25,31 +25,38 @@ const Template= ()=>{
             
                 <div className="template">
                     <img src={skin2} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
             
-                {/* <div className="template">
+                <div className="template">
                     <img src={skin3} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
             
                 <div className="template">
                     <img src={skin4} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
             
                 <div className="template">
                     <img src={skin5} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
             
                 <div className="template">
                     <img src={skin6} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
           
                 <div className="template">
                     <img src={skin7} alt="template not available" ></img>
+                    <button className="template-btn">USE TEMPLATE</button>
                 </div>
             
                 <div className="template">
                     <img src={skin8} alt="template not available" ></img>
-                </div> */}
+                    <button className="template-btn">USE TEMPLATE</button>
+                </div>
             </div>
         </div>
         </>
