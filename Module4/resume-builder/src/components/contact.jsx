@@ -2,15 +2,21 @@ import Preview from "./preview";
 import "./contact.css"
 import {Link} from "react-router-dom"
 import { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import { addContactCreator } from "../redux/action";
 
 
 function Contact(){
-    const [contact, setContact] = useState({})
+    let state = useSelector((state)=>state);
+    let dispatch = useDispatch();
 
+    let contact = state.contactReducer;
     const onChange = (event)=>{
         let key = event.target.id;
         let value = event.target.value;
-        setContact({...contact,[key]:value})
+        
+        let newContact = {...contact,[key]:value};
+        dispatch(addContactCreator(newContact))
     }
 
     const getFieldData = (key)=>{
@@ -50,7 +56,7 @@ function Contact(){
 
                     <div className="input-group">
                         <label htmlFor="">Phone</label>
-                        <input type="text" id="number" value={getFieldData("number")} onChange={onChange} />
+                        <input type="text" id="phone" value={getFieldData("phone")} onChange={onChange} />
                     </div>
 
                     <div className="input-group">

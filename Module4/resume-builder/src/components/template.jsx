@@ -7,6 +7,7 @@ import skin5 from "../static/images/skin5.svg";
 import skin6 from "../static/images/skin6.svg";
 import skin7 from "../static/images/skin7.svg";
 import skin8 from "../static/images/skin8.svg";
+import { Link } from "react-router-dom";
 
 
 const Template= ()=>{
@@ -20,42 +21,42 @@ const Template= ()=>{
             <div className="templates-style">
                 <div className="template">
                     <img src={skin1} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin2} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin3} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin4} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin5} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin6} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
           
                 <div className="template">
                     <img src={skin7} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             
                 <div className="template">
                     <img src={skin8} alt="template not available" ></img>
-                    <button className="template-btn">USE TEMPLATE</button>
+                    <Link to="/contact"><button className="template-btn">USE TEMPLATE</button></Link>
                 </div>
             </div>
         </div>

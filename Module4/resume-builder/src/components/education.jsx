@@ -1,16 +1,21 @@
 import Preview from "./preview";
 import "./education.css"
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addEducationCreator } from "../redux/action";
 
 
 function Education(){
-    const [education, setContact] = useState({});
+    let state = useSelector((state)=>state);
+    let dispatch = useDispatch();
+    let education = state.educationReducer;
 
     const onChange = (event)=>{
         let key = event.target.id;
         let value = event.target.value;
-        setContact({...education,[key]:value})
+        
+        let newEducation = {...education,[key]:value}
+        dispatch(addEducationCreator(newEducation));
     }
 
     const getFieldData = (key)=>{
