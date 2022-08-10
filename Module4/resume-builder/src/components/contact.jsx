@@ -89,11 +89,11 @@ function Contact(){
                         <input type="number" id="pin" value={getFieldData("pin")} onChange={onChange} />
                     </div>
 
-                    <div className="next full">
-                        <Link to="/template"><div className="btn">Back</div></Link>
+                    <div className="btn full">
+                        <Link to="/template"><div className="back">Back</div></Link>
                     </div> 
-                    <div className="back full">
-                    <Link to="/education"><div className="btn">Next</div></Link>
+                    <div className="btn full">
+                    <Link to="/education"><div className="back">Next</div></Link>
                     </div>
 
                     
