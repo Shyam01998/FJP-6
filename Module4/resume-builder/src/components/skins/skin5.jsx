@@ -7,7 +7,7 @@ const Skin5 = () => {
         fname,
         lname,
         summary,
-        email,
+        mail,
         phone,
         profession,
         street,
@@ -42,7 +42,7 @@ const Skin5 = () => {
                         <div className="pin">{pin}</div>
                     </div>
                     <div className="phone">{`Ph - ${phone}`}</div>
-                    <div className="email">{`Email - ${email}`}</div>
+                    <div className="email">{`Email -${mail  }`}</div> 
                 </div>
             </div>
             <div className="hsum">

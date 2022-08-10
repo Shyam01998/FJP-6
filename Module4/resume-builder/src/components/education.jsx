@@ -69,7 +69,7 @@ function Education(){
                         <Link to="/contact"><div className="btn">Back</div></Link>
                     </div> 
                     <div className="back full">
-                        <Link to="/"><div className="btn">Next</div></Link>
+                        <Link to="/finalize"><div className="btn">Next</div></Link>
                     </div>
                 </div>
             </div>

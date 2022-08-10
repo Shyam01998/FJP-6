@@ -6,6 +6,7 @@ import Template from "./components/template";
 import About from "./components/about";
 import Contact from "./components/contact";
 import Education from "./components/education";
+import Finalize from "./components/finalize";
 import { Route, Switch } from "react-router-dom";
 
 
@@ -35,6 +36,9 @@ function App() {
     </Route>
     <Route path="/education" exact>
       <Education/>
+    </Route>
+    <Route path="/finalize" exact>
+      <Finalize/>
     </Route>
    </Switch>
    </>

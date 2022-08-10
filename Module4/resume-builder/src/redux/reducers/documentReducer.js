@@ -6,13 +6,9 @@ export default function documentReducer(state = initialState.document,action){
             case "SET_SKIN":
                 return{
                     ...state,
-                    document:action.document
+                    skinCd:action.document
                 }
-            case "UPDATE_SKIN":
-                return{
-                    ...state,
-                    document:action.document
-                }
+           
                 default:
                     return state;
         }

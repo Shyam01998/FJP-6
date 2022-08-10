@@ -7,13 +7,6 @@ export const setSkinCreator = (value)=>{
 
 }
 
-export const updateCreator = (value)=>{
-    return{
-        type:"UPDATE_SKIN",
-        document:value
-    }
-}
-
 export const addContactCreator = (value)=>{
     return{
         type:"ADD_CONTACT",
