@@ -31,7 +31,7 @@ justify-content: space-evenly;
 }
 
 .header-links ul li a:hover{
-    color: red;
+    color: rgb(0, 140, 255);
 }
 
 .btn{
