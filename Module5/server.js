@@ -20,6 +20,15 @@ app.get("/sayBye",function(req,res){
     res.send("Bye from server");
 })
 
+app.get("/getMultiply/:num1/:num2",function(req,res){
+    console.log(req.params);
+    let num1 = req.params.num1;
+    let num2 = req.params.num2;
+    let mul = num1*num2;
+
+    res.end("Multiply of params are "+mul)
+})
+
 
 
 app.listen(3000,function(){
