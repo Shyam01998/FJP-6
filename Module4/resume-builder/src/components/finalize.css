@@ -12,6 +12,8 @@ box-shadow: 0 5px 10px  gray;
 
 .downlord-options{
     height: 400px;
+    width:  5%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

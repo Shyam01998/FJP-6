@@ -20,3 +20,10 @@ export const addEducationCreator=(value)=>{
         cantact:value
     }
 }
+
+export const logOutCreator=()=>{
+    return{
+        type:"LOGOUT"
+
+    }
+}
