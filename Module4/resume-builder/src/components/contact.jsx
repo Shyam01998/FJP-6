@@ -86,13 +86,13 @@ function Contact(){
 
                     <div className="input-group">
                         <label htmlFor="">Pin Code</label>
-                        <input type="number" id="pin" value={getFieldData("pin")} onChange={onChange} />
+                        <input type="text   " id="pin" value={getFieldData("pin")} onChange={onChange} />
                     </div>
 
-                    <div className="btn full">
+                    <div className="btn full btn-full">
                         <Link to="/template"><div className="back">Back</div></Link>
                     </div> 
-                    <div className="btn full">
+                    <div className="btn full btn-full">
                     <Link to="/education"><div className="back">Next</div></Link>
                     </div>
 
