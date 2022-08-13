@@ -21,9 +21,17 @@ export const addEducationCreator=(value)=>{
     }
 }
 
-export const logOutCreator=()=>{
+export const logOutCreator=(value)=>{
     return{
-        type:"LOGOUT"
+        type:"LOGOUT",
+          
 
+    }
+}
+
+export const loginCreator=(value)=>{
+    return{
+        type:"LOGIN",
+         user:value   
     }
 }

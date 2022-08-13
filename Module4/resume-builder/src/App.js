@@ -1,5 +1,4 @@
 import LandingPage from "./components/landingPage";
-import Register from "./components/register";
 import Header from "./components/header";
 import Login from "./components/login";
 import Template from "./components/template";
@@ -22,12 +21,12 @@ function App() {
     <Route path="/" exact>
       <LandingPage/>
     </Route>
-    <Route path="/template" exact component={auth.isAuth?Template :Login}> </Route>
+    <Route path="/template" exact component={auth.isAuth?Template:Login}></Route>
     <Route path="/about" exact>
       <About/>
     </Route>
     <Route path="/login" exact component={auth.isAuth?LandingPage:Login}> </Route>
-    <Route path="/register" exact component={auth.isAuth?LandingPage:Register}> </Route>
+    <Route path="/register" exact component={auth.isAuth?LandingPage:Login}> </Route>
     <Route path="/contact" exact component={auth.isAuth?Contact:Login}> </Route>
     <Route path="/education" exact component={auth.isAuth?Education:Login}> </Route>
     <Route path="/finalize" exact component={auth.isAuth?Finalize:Login}></Route>
