@@ -5,6 +5,8 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json());
+
 let user;
 
 //get karna he data from  sayHello
@@ -47,15 +49,16 @@ app.post("/sayHello",function(req,res){
     })
 })
 
-//Patch
+//patch
 app.patch("/sayHello",function(req,res){
-    dataTOUpdate = req.body
-    for(key in dataTOUpdate[key]){
-        user[key] = dataTOUpdate[key];
+    dataToUpdate = req.body;
+
+    for(key in dataToUpdate){
+        user[key] = dataToUpdate[key];
     }
-    req.json({
+    res.json({
         message:"Data updated",
-        user:user   
+        user:user
     })
 })
 
