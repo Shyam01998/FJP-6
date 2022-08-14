@@ -5,28 +5,67 @@ const express = require("express");
 
 const app = express();
 
+let user;
+
 //get karna he data from  sayHello
-app.get("/sayHello",function(req , res){
-    res.send("Hello from Server");
+app.get("/sayHello",function(req,res){
+    res.send("Hello from server")
 })
 
-//get karna he data from say
-app.get("/say",function(req,res){
-    res.send("HomePage")
+// //get karna he data from say
+// app.get("/say",function(req,res){
+//     res.send("HomePage")
+// })
+
+// //get karna he data fromm    sayBye
+// app.get("/sayBye",function(req,res){
+//     res.send("Bye from server");
+// })
+
+// app.get("/getMultiply/:num1/:num2",function(req,res){
+//     console.log(req.params);
+//     let num1 = req.params.num1;
+//     let num2 = req.params.num2;
+//     let mul = num1*num2;
+
+//     res.end("Multiply of params are "+mul)
+// })
+
+//get
+app.get("/sayHello",function(req,res){
+        res.json({
+        user:user
+    })
 })
 
-//get karna he data fromm    sayBye
-app.get("/sayBye",function(req,res){
-    res.send("Bye from server");
+//post 
+app.post("/sayHello",function(req,res){
+    user = req.body;
+    res.json({
+        message:"Data recieved Successfully",
+        user:user
+    })
 })
 
-app.get("/getMultiply/:num1/:num2",function(req,res){
-    console.log(req.params);
-    let num1 = req.params.num1;
-    let num2 = req.params.num2;
-    let mul = num1*num2;
+//Patch
+app.patch("/sayHello",function(req,res){
+    dataTOUpdate = req.body
+    for(key in dataTOUpdate[key]){
+        user[key] = dataTOUpdate[key];
+    }
+    req.json({
+        message:"Data updated",
+        user:user   
+    })
+})
 
-    res.end("Multiply of params are "+mul)
+//Delete
+app.delete("/sayHello",function(req,res){
+    user = {};
+    res.json({
+        message:"Deletion done",
+        user:user
+    })
 })
 
 
