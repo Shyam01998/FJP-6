@@ -16,14 +16,17 @@ const userModel = require("./userModel");
 //pic
 
 app.post("/signup",async function(req,res){
-    let data = req.body;
+   try{ let data = req.body;
     console.log(data);
 
     let newUser =await userModel.create(data);
     res.json({
         message:"data received",
         data:data
-    })
+    })}
+    catch(err){
+    res.send(err.message)
+   }
 })
 
 
