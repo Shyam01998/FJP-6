@@ -22,7 +22,7 @@ app.post("/signup",async function(req,res){
     let newUser =await userModel.create(data);
     res.json({
         message:"data received",
-        data:data
+        
     })}
     catch(err){
     res.send(err.message)
