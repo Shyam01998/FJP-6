@@ -1,8 +1,14 @@
 const  express = require("express")
 
+//npm i cookie-parser
+const cookieParser = require("cookie-parser");
+
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
+
+
 
 const userModel = require("./userModel");
 
@@ -29,6 +35,7 @@ app.post("/signup",async function(req,res){
    }
 })
 
+
 app.post("/login",async function(req,res){
     try{
         let data = req.body;
@@ -38,6 +45,7 @@ app.post("/login",async function(req,res){
             let user = await userModel.findOne({email:email});
             if(user){
                 if(user.password == password){
+                    res.cookie("token","sample value");
                     res.send("User logged in");
                 }else{
                     res.send("Email or Password does not match");
@@ -52,6 +60,10 @@ app.post("/login",async function(req,res){
         console.log(err.message);
 
     }
+})
+
+app.get("/users",function(req,res){
+    console.log(req.cookies);
 })
 
 
