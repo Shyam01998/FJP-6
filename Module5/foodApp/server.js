@@ -80,13 +80,29 @@ app.get("/users",protectRoute, async function(req,res){
     }
 })
 
+app.get("/user",protectRoute ,async function (req,res){
+    try{
+        const userId = req.userId;
+        const user = await userModel.findById(userId);
+        //to send json data
+        res.json({
+            data:user,
+            message:"Data about logged in user is send"
+        }) 
+    }catch(err){
+        res.send(err.message);
+    }
+})
+
 function protectRoute(req,res,next){
     try{
         let cookies = req.cookies;
         let JWT = cookies.JWT;
-        if(JWT){
+        if(cookies.JWT){
             const token = jwt.verify(JWT,secretKey) ;
             console.log(token);
+            let userId = token.data;
+            req.userId = userId;
             next();
         }else{
             res.send("You are not logged in.Kindly login");
