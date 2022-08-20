@@ -71,10 +71,30 @@ app.post("/login",async function(req,res){
     }
 })
 
-app.get("/users",function(req,res){
-    console.log(req.cookies);
-    res.send("cookie read")
+app.get("/users",protectRoute, async function(req,res){
+    try{
+        let user = await userModel.find();
+        res.json(user);
+    }catch(err){
+        res.send(err.message);
+    }
 })
+
+function protectRoute(req,res,next){
+    try{
+        let cookies = req.cookies;
+        let JWT = cookies.JWT;
+        if(JWT){
+            const token = jwt.verify(JWT,secretKey) ;
+            console.log(token);
+            next();
+        }else{
+            res.send("You are not logged in.Kindly login");
+        }
+    }catch(err){
+
+    }
+}
 
 
 
