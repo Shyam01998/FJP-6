@@ -58,6 +58,10 @@ let userSchema = new Schema({
         default:"logo2.png"
     },
 
+    otp:{
+        type:String
+    },
+
     address:{
         type:String
 
