@@ -119,7 +119,7 @@ app.patch("/resetPassword", async function(req,res){
                 })
             }
         }
-        //key delte -> get the document obj -> modify that object by removing useless keys
+        //key delete -> get the document obj -> modify that object by removing useless keys
         //save this doc in db
 
     }catch(err){
