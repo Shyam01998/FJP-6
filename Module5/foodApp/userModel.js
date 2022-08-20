@@ -62,6 +62,10 @@ let userSchema = new Schema({
         type:String
     },
 
+    otpExpiry:{
+        type:Date
+    },
+
     address:{
         type:String
 
