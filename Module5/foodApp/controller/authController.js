@@ -1,46 +1,23 @@
-const  express = require("express")
 
-//npm i cookie-parser
-const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
+const secretKey = "ghghjghjhujkuilkjk,";
+const userModel = require("../model/userModel");
 
-//npm i jsonwebtoken
-var jwt = require('jsonwebtoken');
-const secretKey = "ghghjghjhujkuilkjk,"
+async function signupController(req,res){
+    try{ let data = req.body;
+     console.log(data);
+ 
+     let newUser =await userModel.create(data);
+     res.json({
+         message:"data received",
+         
+     })}
+     catch(err){
+     res.send(err.message)
+    }
+ }
 
-const app = express();
-
-app.use(express.json());
-app.use(cookieParser());
-
-
-
-const userModel = require("./userModel");
-
-//sign up
-//name
-//password
-//confirmPassword
-//phone
-//address
-//email
-//pic
-
-app.post("/signup",async function(req,res){
-   try{ let data = req.body;
-    console.log(data);
-
-    let newUser =await userModel.create(data);
-    res.json({
-        message:"data received",
-        
-    })}
-    catch(err){
-    res.send(err.message)
-   }
-})
-
-
-app.post("/login",async function(req,res){
+ async function loginController(req,res){
     try{
         let data = req.body;
         // console.log(data)
@@ -69,9 +46,9 @@ app.post("/login",async function(req,res){
         console.log(err.message);
 
     }
-})
+}
 
-app.patch("/forgetPassword",async function(req,res){
+async function forgetPasswordController(req,res){
     try{
         let {email} = req.body;
         let afterFiveMin = Date.now() + 1000*60*5;
@@ -88,9 +65,9 @@ app.patch("/forgetPassword",async function(req,res){
     }catch(err){
         res.send(err.message);
     }
-})
+}
 
-app.patch("/resetPassword", async function(req,res){
+async function resetPasswordController(req,res){
     try{
         let {otp,password,confirmPassword,email} = req.body;
         let user = await userModel.findOne({email});
@@ -125,34 +102,11 @@ app.patch("/resetPassword", async function(req,res){
     }catch(err){
         res.send(err.message);
     }
-})
+}
 
 function otpGenerator(){
     return Math.floor(Math.random()*1000000);
 }
-
-app.get("/users",protectRoute, async function(req,res){
-    try{
-        let user = await userModel.find();
-        res.json(user);
-    }catch(err){
-        res.send(err.message);
-    }
-})
-
-app.get("/user",protectRoute ,async function (req,res){
-    try{
-        const userId = req.userId;
-        const user = await userModel.findById(userId);
-        //to send json data
-        res.json({
-            data:user,
-            message:"Data about logged in user is send"
-        }) 
-    }catch(err){
-        res.send(err.message);
-    }
-})
 
 function protectRoute(req,res,next){
     try{
@@ -172,9 +126,10 @@ function protectRoute(req,res,next){
     }
 }
 
-
-
-
-app.listen(3000,function(){
-    console.log("server started at 3000");
-}) 
+module.exports = {
+    signupController,
+    loginController,
+    forgetPasswordController,
+    resetPasswordController,
+    protectRoute
+}
