@@ -1,13 +1,5 @@
-const userModel = require("../model/userModel");
+const userModel = require("../model/userModel")
 
-async function getAllUsersController(req,res){
-    try{
-        let user = await userModel.find();
-        res.json(user);
-    }catch(err){
-        res.send(err.message);
-    }
-}
 
 async function profileController(req,res){
     try{
@@ -17,13 +9,25 @@ async function profileController(req,res){
         res.json({
             data:user,
             message:"Data about logged in user is send"
-        }) 
+        })
     }catch(err){
-        res.send(err.message);
+        res.send(err.message)
     }
 }
 
+async function getAllUsersController(req,res){
+    try{
+        let users = await userModel.find();
+        res.json(users);
+    }catch(err){
+        res.send(err.message);
+    }
+    // console.log(req.cookies);
+    // res.send("cookie read");
+}
+
+
 module.exports = {
-    getAllUsersController:getAllUsersController,
-    profileController:profileController
+    profileController:profileController,
+    getAllUsersController:getAllUsersController
 }

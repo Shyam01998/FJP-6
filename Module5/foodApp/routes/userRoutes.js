@@ -1,14 +1,13 @@
 const express = require("express");
 const userRouter = express.Router();
-const {protectRoute} = require("../controller/authController")
-
 const {
-    profileController,
-    getAllUsersController,
+    getAllUsersController,profileController
 } = require("../controller/userController")
 
-userRouter.get("/users",protectRoute, getAllUsersController)
+const {protectRoute} = require("../controller/authController")
+userRouter.get("/users", protectRoute,getAllUsersController)
 
-userRouter.get("/user",protectRoute , profileController)
+userRouter.get("/user",protectRoute, profileController)
+
 
 module.exports = userRouter;

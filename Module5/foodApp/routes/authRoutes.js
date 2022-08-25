@@ -1,19 +1,18 @@
 const express = require("express");
 const authRouter = express.Router();
 
-const {
-    signupController,
+const {    signupController,
     loginController,
-    forgetPasswordController,
     resetPasswordController,
-    } = require("../controller/authController")
+    forgetPasswordController} = require("../controller/authController")
 
-authRouter.post("/signup", signupController)
 
-authRouter.post("/login", loginController)
+authRouter.post("/signup",signupController)
 
-authRouter.patch("/forgetPassword", forgetPasswordController)
+authRouter.post("/login",loginController)
 
-authRouter.patch("/resetPassword", resetPasswordController)
+authRouter.patch("/forgetPassword",forgetPasswordController)
+
+authRouter.patch("/resetPassword",resetPasswordController)
 
 module.exports = authRouter;
