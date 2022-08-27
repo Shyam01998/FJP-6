@@ -37,7 +37,7 @@ function AuthProvider({ children }) {
                 password: password
             });
             setLoading(false);
-            // console.log("40",res.data);
+            console.log("40",res);
             userSet(res.data.user);
         }
         catch (err) {
