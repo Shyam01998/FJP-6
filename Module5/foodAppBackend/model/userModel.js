@@ -14,7 +14,7 @@ mongoose.connect(dbLink).then(function(){
     console.log("error",err);
 })
 
-///how to create a schema -> only entries written will be added to your db no one else.
+//how to create a schema -> only entries written will be added to your db no one else.
 
 let userSchema = new Schema({
     name:{

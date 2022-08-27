@@ -11,10 +11,12 @@ async function signupController(req,res){
         let newUser =await userModel.create(data);
         console.log(newUser);
         res.json({
-            message:"data recieved",
+            result:"data recieved",
         })}
     catch(err){
-        res.send(err.message)
+        res.status(500).json({
+            result:err.message
+        })
     }
 }
 
@@ -26,26 +28,31 @@ async function loginController(req,res){
         let {email,password} = data;
         if(email && password){
             let user = await userModel.findOne({email:email});
-            console.log(user);
             if(user){
                 if(user.password == password){
                     //create JWT -> payload, secret key, algo by default -> SHA256
                     const token = jwt.sign({ data: user['_id'] }, secretKey);
-                    console.log(token);
+                    // console.log(token);
                     //put token into cookies
                     res.cookie("JWT",token);
-                    res.send("User logged in");
+                    console.log(user);
+                    res.status(200).json({user});
                 }else{
-                    res.send("Email or Password does not match");
+                    res.status(400).json({result:"Email or Password does not match"})
                 }
             }else{
-                res.send("User with this email does not exist. Kindly sign up");
+                res.status(404).json({result:"User with this email does not exist. Kindly sign up"})
             } 
         }else{
-            res.send("Kindly enter email and password both");
+            res.status(400).json({
+                result:"Kindly enter email and password both"
+            })
         }
     }catch(err){
         console.log(err.message);
+        res.status(500).json({
+            result:err.message
+        })
     }
 }
 
@@ -60,18 +67,18 @@ async function forgetPasswordController(req,res){
             user.otp = otp;
             user.otpExpiry = afterFiveMin;
             await user.save();
-            res.json({
+            res.status(204).json({
                 data:user,
                 "message":"Otp send to your mail"
             })
         }else{
-            res.json({
+            res.status(404).json({
                 result:"user with this email does not exist"
             })
         }
        
     }catch(err){
-        res.send(err.message);
+        res.status(500).send(err.message);
     }
 }
 
@@ -85,12 +92,12 @@ async function resetPasswordController(req,res){
             delete user.otp;
             delete user.otpExpiry;
             await user.save();
-            res.json({
+            res.status(200).json({
                 message:"OTP Expired"
             })
         }else{
             if(user.otp != otp){
-                res.json({
+                res.status(200).json({
                     message:"OTP does not match"
                 })
             }else{
@@ -99,7 +106,7 @@ async function resetPasswordController(req,res){
                 delete user.otpExpiry
                 await user.save();
 
-                res.json({
+                res.status(201).json({
                     user:user,
                     message:"user password reset complete"
                 })
@@ -109,7 +116,7 @@ async function resetPasswordController(req,res){
         //save this doc in db
 
     }catch(err){
-        res.send(err.message)
+        res.status(500).send(err.message)
     }
 }
 
